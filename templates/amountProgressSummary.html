@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div><span>Dear all：</span></div>
+截止{{year}}年{{month}}月{{day}}日{{hour}}:00，各资金方进件金额如下：</div>
+
+<table id="mytable" cellspacing="0">
+    <caption style=" padding: 0 0 5px 0;width: 700px;font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;text-align: right;"> </caption>
+    <tr>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">机构（直投）</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">期数</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">产品</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">额度配置</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">待分案金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">审核中金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">待签约金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">待资金方进件金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">资金方进件金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">已放款金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">进件未放款金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">进件失败金额</th>
+
+    </tr>
+    {% for item in amountProgressSummaryDataValue %}
+        <tr >
+        <td align="center" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.organization}}</td>
+        <td align="center" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.applyPeriod}}</td>
+        <td align="center" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.product}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.limitAmount}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.waittingCheckAmount}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.beingCheckAmount}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.waittingSignAmount}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.waitApplyAmount}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.useAmount}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.loanAmount}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.applyNotLoanAmount}}</td>
+        <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item.applyFailure}}</td>
+    </tr>
+    {% endfor %}
+    <tr >
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">单位：万元</td>
+    </tr>
+</table>
+<table id="mytable1" cellspacing="0">
+    <caption style=" padding: 0 0 5px 0;width: 700px;font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;text-align: right;"> </caption>
+    <tr>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">机构（债转）</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">期数</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">产品</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">额度配置</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">待分案金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">审核中金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">待签约金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">待放款金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">当日已放款金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">当日代付失败金额</th>
+        <th style="color: #4f6b72;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;text-align: center;padding: 6px 6px 6px 12px;background: #CAE8EA no-repeat;">财务及客服处理金额</th>
+    </tr>
+   {% for item1 in ownAmountProgressSummaryData %}
+        <tr >
+            <td align="center" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.organization}}</td>
+            <td align="center" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.applyPeriod}}</td>
+            <td align="center" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.product}}</td>
+            <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;" >{{item1.limitAmount}}</td>
+            <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.waittingCheckAmount}}</td>
+            <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.beingCheckAmount}}</td>
+            <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.waittingSignAmount}}</td>
+            <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;" >{{item1.waitLoanAmount}}</td>
+            <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.loanAmount}}</td>
+            <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.paymentFailure}}</td>
+            <td align="right" style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">{{item1.waitServiceCheckAmount}}</td>
+        </tr>
+    {% endfor %}
+    <tr >
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;"></td>
+        <td style="border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;background: #fff;font-size:11px;padding: 6px 6px 6px 12px;color: #4f6b72;">单位：万元</td>
+    </tr>
+
+</table>
+<div><hr style="width: 210px; height: 1px;" color="#b5c4df" size="1" align="left"><div style="font-family: verdana; font-size: 13.3333px; line-height: normal;">Best Regards</div><div style="font-family: verdana; font-size: 13.3333px; line-height: normal;"><span style="line-height: 1.5; font-size: 10pt; background-color: window;">Thanks</span></div><div style="font-family: verdana; font-size: 13.3333px; line-height: normal;"><br></div><div style="font-family: verdana; font-size: 13.3333px; line-height: normal;">上海敬庸信息科技有限公司天津分公司</div><div style="font-family: verdana; font-size: 13.3333px; line-height: normal;">网址：<span style="line-height: 1.5; font-size: 10pt; background-color: rgba(0, 0, 0, 0);"><a href="http://www.dpandora.cn/" target="_blank" style="outline: none; color: rgb(42, 88, 111);">http://www.d<wbr>pandora.cn/</a></span></div><div style="font-family: verdana; font-size: 13.3333px; line-height: normal;"></div></div>
+</body>
+</html>

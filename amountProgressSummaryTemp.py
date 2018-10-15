@@ -9,10 +9,11 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 from html_template_helper import render_template
+from src.python.utils.common.duoyuan_conn import *
 
 con = create_engine('mysql+pymysql://maxiaolei:maxiaolei@123@10.253.5.147:3306/fqmall_ht_prod?charset=utf8')
 connFq = con.connect()
-
+connFq=dfq()
 # def getmailList():
 #     mailListSql='''
 #     SELECT recipient_email FROM inv_monitor_mail a WHERE mail_type = 3  ORDER BY id

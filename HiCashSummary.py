@@ -7,15 +7,17 @@ import datetime
 
 import pandas as pd
 from sqlalchemy import create_engine
-
+from src.python.utils.common.duoyuan_conn import *
 # connFq = create_engine('mysql+pymysql://{}:{}@{}/{}?charset=utf8'.format(*get_config('fqmall_ht_prod')))
 from html_template_helper import render_template
+
+
 
 import platform
 
 con = create_engine('mysql+pymysql://maxiaolei:maxiaolei@123@10.253.5.147:3306/fqmall_ht_prod?charset=utf8')
 connFq = con.connect()
-
+connFq=dfq()
 
 def getmailList():
     mailListSql = '''

@@ -303,7 +303,7 @@ def send_email(year, month, day, hour, amountProgressSummaryData, ownAmountProgr
               'yongneng.yan@hengyuan-finance.com','wangjun@dpandora.cn','likui@dpandora.cn','randy.sun@hengyuan-finance.com',
               'irwin.chen@idjshi.com', 'hao.wang@hengyuan-finance.com', 'caicai.cai@idjshi.com',
               'gary.zhang@hengyuan-finance.com','yanan.gao@hengyuan-finance.com','kevin.lu@hengyuan-finance.com','yanan.gao@idjshi.com','jacke.pan@hengyuan-finance.com','fanpeijie@dpandora.cn','bill.jiang@hengyuan-finance.com']
-    cc = ['maxiaolei@dpandora.cn','mazhi@dpandora.cn','yuhaifeng@dpandora.cn']
+    cc = ['maxiaolei@dpandora.cn']
     ccTemp= ['maxiaolei@dpandora.cn']
     yag = yagmail.SMTP(user="security@dpandora.cn", password="Jingyong1234", host="smtp.exmail.qq.com", port="465")
 

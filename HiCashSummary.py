@@ -864,8 +864,8 @@ def gen(start, end):
                 'vicky.wan@hengyuan-finance.com', 'lynn.zhang@hengyuan-finance.com',
                 'yongneng.yan@hengyuan-finance.com',
                 'likui@dpandora.cn', 'wangxiaoqing@dpandora.cn', 'randy.sun@hengyuan-finance.com',
-                'charles.lin@hengyuan-finance.com', 'woody.zhou@hengyuan-finance.com','charles.lin@hengyuan-finance.com']
-    cc = ['maxiaolei@dpandora.cn', 'dongdong.zhai@hengyuan-finance.com', 'mazhi@dpandora.cn', 'yuhaifeng@dpandora.cn']
+                'charles.lin@hengyuan-finance.com','charles.lin@hengyuan-finance.com']
+    cc = ['maxiaolei@dpandora.cn', 'dongdong.zhai@hengyuan-finance.com', 'mazhi@dpandora.cn']
     ccTemp=['maxiaolei@dpandora.cn']
     yag = yagmail.SMTP(user="security@dpandora.cn", password="Jingyong1234", host="smtp.exmail.qq.com", port="465")
     yag.send(to=receiver, subject=subject, contents=html, attachments=None, cc=cc)

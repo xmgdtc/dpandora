@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div><span>Dear all：</span></div>
+以下为嗨钱对接各个资金方的数据汇总。
+<style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg .tg-yzt1{background-color:#efefef;vertical-align:top}
+    .tg .tg-mtwr{background-color:#bbdaff;vertical-align:top}
+    .tg .tg-h2g2{font-weight:bold;font-size:16px;background-color:#efefef;text-align:center;vertical-align:top}
+    .tg .tg-i6eq{background-color:#ffccc9;vertical-align:top}
+    .tg .tg-7xlo{font-weight:bold;font-size:16px;background-color:#efefef;vertical-align:top}
+    .tg .tg-jb4e{font-size:15px;background-color:#efefef;vertical-align:top}
+    .tg .tg-a080{background-color:#9aff99;vertical-align:top}
+    .tg .tg-v7c1{background-color:#fffc9e;vertical-align:top}
+    .tg .tg-c57o{background-color:#ecf4ff;vertical-align:top}
+    .tg .tg-yw4l{vertical-align:top}
+    .tg .tg-w83z{font-size:14px;background-color:#efefef;vertical-align:top}
+
+
+</style>
+{% for item in items %}
+<table class="tg">
+    <tr>
+        <th class="tg-7xlo" colspan="7">嗨钱对接{{item.userName}}每日数据总结</th>
+        <th class="tg-7xlo">Date:{{yesterday}}</th>
+    </tr>
+    <tr>
+        <td class="tg-h2g2" rowspan="3">进件情况<br></td>
+        <td class="tg-jb4e">总进件数</td>
+        <td class="tg-jb4e">成功数</td>
+        <td class="tg-jb4e">失败数</td>
+        <td class="tg-yzt1">等待进件数</td>
+        <td class="tg-jb4e">成功率</td>
+        <td class="tg-jb4e">主要失败原因</td>
+        <td class="tg-jb4e">备注</td>
+    </tr>
+    <tr>
+        <td class="tg-mtwr">{{item.applyTotalCount}}</td>
+        <td class="tg-a080">{{item.applySuccessCount}}</td>
+        <td class="tg-i6eq">{{item.applyFailureCount}}</td>
+        <td class="tg-v7c1">{{item.applyWaitCount}}</td>
+        <td class="tg-c57o">{{item.applySuccessRate }}</td>
+        <td class="tg-yw4l">{{item.applyFailureRootCause}}</td>
+        <td class="tg-yw4l"></td>
+    </tr>
+    <tr>
+        {% if item.flag==0 %}
+
+        <td class="tg-yw4l" colspan="7">
+            今日限额情况：3期MDCP限额{{item.limitAmount3MDCP}}万元,已用{{item.useAmount3MDCP}}万元；3期VIPD限额{{item.limitAmount3VIPD}}万元,已用{{item.useAmount3VIPD}}万元；<br/>
+            6期MDCP限额{{item.limitAmount6MDCP}}万元,已用{{item.useAmount6MDCP}}万元;6期VIPD限额{{item.limitAmount6VIPD}}万元,已用{{item.useAmount6VIPD}}万元。<br/>
+            1期LDDD限额{{item.limitAmount1LDDD}}万元,已用{{item.useAmount1LDDD}}万元
+        </td>
+        {% else %}
+
+        <td class="tg-yw4l" colspan="7">
+            今日限额情况：MDCP限额{{item.limitAmount3MDCP}}万元,已用{{item.useAmount3MDCP}}万元；VIPD限额{{item.limitAmount3VIPD}}万元,已用{{item.useAmount3VIPD}}万元。
+        </td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td class="tg-7xlo" rowspan="3">代扣情况</td>
+        <td class="tg-w83z">应代扣数</td>
+        <td class="tg-w83z">成功数</td>
+        <td class="tg-w83z">失败数</td>
+        <td class="tg-yzt1">等待代扣数</td>
+        <td class="tg-w83z">成功率</td>
+        <td class="tg-w83z">主要失败原因</td>
+        <td class="tg-w83z">备注</td>
+    </tr>
+    <tr>
+        <td class="tg-mtwr">{{item.withholdingTotalCount}}</td>
+        <td class="tg-a080">{{item.withholdingSuccessCount}}</td>
+        <td class="tg-i6eq">{{item.withholdingFailureCount}}</td>
+        <td class="tg-v7c1">{{item.withholdingWaitCount}}</td>
+        <td class="tg-c57o">{{item.withholdingSuccessRate}}</td>
+        <td class="tg-yw4l">{{item.withholdingFailureRootCause}}</td>
+        <td class="tg-yw4l"></td>
+    </tr>
+    <tr>
+        <td class="tg-yw4l" colspan="7">以上代扣数据为当日全天</td>
+    </tr>
+</table>
+<br/>
+{% endfor %}
+<div>
+    <hr style="width: 210px; height: 1px;" color="#b5c4df" size="1" align="left">
+    <div style="font-family: verdana; font-size: 13.3333px; line-height: normal;">Best Regards</div>
+    <div style="font-family: verdana; font-size: 13.3333px; line-height: normal;"><span
+            style="line-height: 1.5; font-size: 10pt; background-color: window;">Thanks</span></div>
+    <div style="font-family: verdana; font-size: 13.3333px; line-height: normal;"><br></div>
+    <div style="font-family: verdana; font-size: 13.3333px; line-height: normal;">上海敬庸信息科技有限公司天津分公司</div>
+    <div style="font-family: verdana; font-size: 13.3333px; line-height: normal;">网址：<span
+            style="line-height: 1.5; font-size: 10pt; background-color: rgba(0, 0, 0, 0);"><a
+            href="http://www.dpandora.cn/" target="_blank" style="outline: none; color: rgb(42, 88, 111);">http://www.d<wbr>pandora.cn/</a></span>
+    </div>
+    <div style="font-family: verdana; font-size: 13.3333px; line-height: normal;"></div>
+</div>
+</body>
+</html>
